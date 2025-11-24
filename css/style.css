@@ -20,14 +20,14 @@ p {
 }
 
 h2, h3 {
-    color: #f28c38;
+    color: #3b38f2;
     text-align: center;
     margin: 1em 0em;
 }
 
 /* ----- Configuraçções Cabeçalho ----- */
 header {
-    background-image: url('../images/fundoheader.jpg');
+    background-image: url('../images/1925599-grafico-grafico-de-mercado-de-acoes-investimento-em-fundo-azul-grátis-vetor.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -43,7 +43,7 @@ header h1 {
 
 /* ----- Configuraçções Navegação ----- */
 .navegacao {
-    background-color: #f28c38;
+    background-color: #383bf2;
     padding: 1.5em 0;
 }
 
@@ -63,7 +63,7 @@ header h1 {
 }
 
 .navegacao ul li a:hover {
-    background-color: #d9741e;
+    background-color: #383bf2;
 }
 
 /* ----- Configurações Conteúdo ----- */
@@ -125,7 +125,7 @@ header h1 {
 }
 
 .cartaoInvestimento:hover {
-    border: 2px solid #d9741e;
+    border: 2px solid #383bf2;
 }
 
 .cartaoInvestimento p {
@@ -140,7 +140,7 @@ header h1 {
 
 .investimentoSelecionado {
     font-weight: bold;
-    color: #f28c38;
+    color: #383bf2;
     font-size: 1.5em;
 }
 
@@ -158,14 +158,14 @@ header h1 {
 }
 
 .calculadora button {
-    background-color: #f28c38;
+    background-color: #383bf2;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .calculadora button:hover {
-    background-color: #d9741e;
+    background-color: #383bf2;
 }
 
 .resultado {
@@ -176,7 +176,7 @@ header h1 {
 
 /* ----- Configurações Rodapé ----- */
 footer {
-    background-color: #f28c38;
+    background-color: #383bf2;
     color: white;
     text-align: center;
     padding: 1em;
