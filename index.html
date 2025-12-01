@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADS Investimentos</title>
+    <title>Calculadora Financeira</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- cabeçalho -->
     <header>
-        <h1>ADS Investimentos</h1>
-    </header>
+        <h1>Calculadora Financeira</h1>
 
     <!-- navegação -->
     <nav class="navegacao">
         <ul>
-            <li><a href="#sobre">Sobre Nós</a></li>
-            <li><a href="#conteudoInvestimentos">Investimentos</a></li>
+            <li><a href="#sobre">Renda Fixa</a></li>
+            <li><a href="#conteudoInvestimentos">Simulador</a></li>
         </ul>
     </nav>
+    </header>
+
 
     <!-- conteúdo -->
     <div class="conteudo">
         <!-- conteúdo valores -->
         <div class="sobre" id="sobre">
-            <h2>Sobre Nós</h2>
-            <p class="introducao">A ADS Investimentos é uma empresa especializada em soluções de renda fixa, comprometida em oferecer opções seguras e rentáveis para o crescimento financeiro de nossos clientes. Com anos de experiência no mercado, nossa equipe combina expertise, transparência e inovação para criar estratégias personalizadas que atendem às necessidades de cada investidor. Nosso objetivo é ser a principal referência em investimentos no Brasil, garantindo confiança e excelência em cada operação.</p>
-            <div class="sobreItem">
-                <img src="images/Missao.jpg" alt="Missão">
-                <p><strong>Missão:</strong> Proporcionar soluções de investimento seguras e rentáveis, promovendo o crescimento financeiro de nossos clientes.</p>
+            <h2>Por que investir em Renda Fixa?</h2>
+            <p class="introducao">A Calculadora Financeira é uma ferramenta especializada em soluções de renda fixa, comprometida em oferecer opções seguras e rentáveis para o crescimento financeiro de nossos clientes. Com anos de experiência no mercado, nossa equipe combina expertise, transparência e inovação para criar estratégias personalizadas que atendem às necessidades de cada investidor. Nosso objetivo é ser a principal referência em investimentos no Brasil, garantindo confiança e excelência em cada operação.</p>
+        </div>
+        <div class="investimentos">
+            <div class="cartaoInformativo">
+                <h3>Diversificação</h3>
+                <p>Nosso portfólio completo permite que seu patrimônio seja alocado de forma inteligente e estratégica em diversos setores da economia.</p>
             </div>
-            <div class="sobreItem">
-                <img src="images/Visao2.jpg" alt="Visão">
-                <p><strong>Visão:</strong> Ser a principal referência em investimentos de renda fixa no Brasil, reconhecida pela transparência e excelência.</p>
+            
+            <div class="cartaoInformativo">
+                <h3>Proteção da inflação</h3>
+                <p>Em um cenário de incertezas, é bom poder confiar. Explore produtos que rendem mais que a inflação e ajudam a preservar seu poder de compra.</p>
             </div>
-            <div class="sobreItem">
-                <img src="images/Valores.jpg" alt="Valores">
-                <p><strong>Valores:</strong> Integridade, inovação, confiança e foco no cliente.</p>
+            
+            <div class="cartaoInformativo">
+                <h3>Prazo Diversos</h3>
+                <p>Desde investimentos com prazos longos até CDBs com liquidez diária, temos tudo para você encontrar o produto perfeito para o seu planejamento.</p>
+            </div>
+            
+            <div class="cartaoInformativo">
+                <h3>Preservação Patrimonial</h3>
+                <p>Investimentos com menor volatilidade que contribuem para o crescimento e preservação do seu capital, mesmo em cenários econômicos desafiadores.</p>
             </div>
         </div>
         <!-- conteúdo investimento -->
         <div class="conteudoInvestimentos" id="conteudoInvestimentos">
-            <h2>Investimentos</h2>
+            <h2>Tipos de ativos</h2>
             <div class="investimentos" id="investimentos">
                 <!-- Os investimentos serão renderizados aqui via JavaScript -->
-
             </div>
             <!-- conteúdo calculadora -->
             <div class="calculadora" id="calculadora">
-                    <h2>Calculadora de Investimentos</h2>
-                    <p>Investimento Selecionado: <span id="investimentoSelecionado" class="investimentoSelecionado">Nenhum selecionado</span></p>
+                    <h2>Compare investimentos ao longo do tempo</h2>
+                    <p>Preencha os valores para simular a rentabilidade de diferentes tipos de produtos.</p>
                     <label for="valorInicial">Valor Inicial (R$):</label>
                     <input type="number" id="valorInicial" placeholder="Ex: 1000" min="0">
                     <label for="tempo">Tempo (meses):</label>
                     <input type="number" id="tempo" placeholder="Ex: 12" min="1">
-                    <button onclick="calcularInvestimento()">Calcular</button>
+                    <button onclick="calcularInvestimento()">Simular investimento</button>
                     <div class="resultado" id="resultado">
                         <!-- Os resultado serão exibidos aqui após calculados via JavaScript -->
                     </div>
@@ -63,8 +72,8 @@
     </div>
     <!-- rodapé -->
     <footer>
-        <p>© 2025 ADS Investimentos. Todos os direitos reservados.</p>
-        <p>Contato: <a href="mailto:contato@adsinvestimentos.com">contato@adsinvestimentos.com</a></p>
+        <p>© 2025 Calculadora Financeira. Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@calculadorafinanceira.com">contato@calculadorafinanceira.com</a></p>
     </footer>
     <script src="js/script.js"></script>
 </body>

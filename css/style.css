@@ -32,7 +32,7 @@ header {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 4em 1em;
+    padding: 4em 1em 1em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -43,8 +43,8 @@ header h1 {
 
 /* ----- Configuraçções Navegação ----- */
 .navegacao {
-    background-color: #383bf2;
-    padding: 1.5em 0;
+    padding: 2em 0;
+    margin-top: 10em;
 }
 
 .navegacao ul {
@@ -63,12 +63,12 @@ header h1 {
 }
 
 .navegacao ul li a:hover {
-    background-color: #383bf2;
+    background-color: #383bf280;
 }
 
 /* ----- Configurações Conteúdo ----- */
 .conteudo {
-    max-width: 80em;
+    max-width: 90em;
     margin: 0 auto;
 }
 
@@ -106,31 +106,65 @@ header h1 {
 }
 
 /* ----- Configurações Conteúdo - Investimentos ----- */
+/* Container dos cards */
 .investimentos {
-    flex: 1;
-    min-width: 340px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5em;
     justify-content: center;
+    gap: 2em;
+    margin: 2em 0;
+    flex-wrap: wrap; /* permite quebra em telas menores */
 }
 
+/* Cada card */
+
 .cartaoInvestimento {
-    width: 340px;
-    padding: 2.5em;
+    flex: 1 1 calc(33.33% - 3em); /* 3 colunas */
+    padding: 2em;
     text-align: center;
     cursor: pointer;
+    background: white;
     border: 2px solid #f4f4f4;
     border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartaoInformativo {
+    flex: 1 1 250px; /* flex-grow: 1, flex-shrink: 1, largura inicial mínima: 250px */
+    padding: 2em; /* ajuste para manter proporção visual */
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    border: 2px solid #f4f4f4;
+    border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px; /* garante que não cresça demais */
 }
 
 .cartaoInvestimento:hover {
     border: 2px solid #383bf2;
 }
 
+/* Texto dentro do card */
 .cartaoInvestimento p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-bottom: 10px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ----- Responsividade ----- */
+@media (max-width: 900px) {
+    .cartaoInvestimento {
+        width: 45%; /* 2 cards por linha em tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .cartaoInvestimento {
+        width: 100%; /* 1 card por linha em celulares */
+    }
 }
 
 /* ----- Configurações Conteúdo - Calculadora ----- */
