@@ -124,7 +124,6 @@ header h1 {
     flex: 1 1 calc(33.33% - 3em); /* 3 colunas */
     padding: 2em;
     text-align: center;
-    cursor: pointer;
     background: white;
     border: 2px solid #f4f4f4;
     border-radius: 1em;
@@ -136,7 +135,6 @@ header h1 {
     flex: 1 1 250px; /* flex-grow: 1, flex-shrink: 1, largura inicial mínima: 250px */
     padding: 2em; /* ajuste para manter proporção visual */
     text-align: center;
-    cursor: pointer;
     background: white;
     border: 2px solid #f4f4f4;
     border-radius: 1em;
