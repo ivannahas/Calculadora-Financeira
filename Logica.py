@@ -1,3 +1,6 @@
+# ARQUIVO: Logica.py (Conteúdo COMPLETO e atualizado)
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 import re
 
@@ -38,7 +41,7 @@ def calcular_taxa_anual(texto_taxa):
         if match_cdi_spread:
             val = float(match_cdi_spread.group(2)) / 100
             return (CDI - val) if match_cdi_spread.group(1) == '-' else (CDI + val)
-        return CDI  # Fallback
+        return CDI
 
     match_pre = re.search(r'^([\d\.]+)%\s*a\.a\.', texto, re.IGNORECASE)
     if match_pre: return float(match_pre.group(1)) / 100
@@ -73,27 +76,51 @@ def simular(valor_inicial, meses):
         anos = meses / 12.0
         bruto_min = valor_inicial * (1 + i_min) ** anos
 
-        # IR
         aliquota = calcular_ir(meses, item['Isento_IR'])
         imposto_min = (bruto_min - valor_inicial) * aliquota
         liq_min = bruto_min - imposto_min
 
         resultados.append({
-            'Aplicação': f"{item['Aplicacao']} - {item['Tipo']}",
-            'Valor Líquido': liq_min
+            'Aplicacao': f"{item['Aplicacao']} - {item['Tipo']}",
+            'Valor_Liquido': liq_min
         })
 
-    df = pd.DataFrame(resultados).sort_values(by='Valor Líquido', ascending=False)
-    return df
+    df = pd.DataFrame(resultados).sort_values(by='Valor_Liquido', ascending=False)
+    
+    # MODIFICAÇÃO: Retorna os top 3 resultados como uma lista de dicts
+    top_3 = df.head(3).to_dict('records')
+    
+    # Garante que os valores numéricos sejam floats nativos para jsonify
+    for res in top_3:
+        res['Valor_Liquido'] = float(res['Valor_Liquido'])
 
+    return top_3
 
-# --- 4. EXECUÇÃO ---
-VALOR = int(input('Digite o valor que deseja investir: '))
-MESES = int(input('Digite o tempo que deseja investir em messes: '))
+# --- 4. FLASK API ---
+app = Flask(__name__)
+# Permite requisições de origens diferentes
+CORS(app) 
 
-df_resultado = simular(VALOR, MESES)
-melhor = df_resultado.iloc[0]
+@app.route('/simular', methods=['POST'])
+def simular_investimento():
+    data = request.get_json()
+    try:
+        # A API recebe 'valorInicial' e 'tempo' do JavaScript
+        valor_inicial = data['valorInicial']
+        meses = data['tempo']
+        
+        if valor_inicial <= 0 or meses <= 0:
+             return jsonify({"erro": "Valores devem ser positivos"}), 400
+             
+        # A função simular agora retorna os top 3 resultados
+        resultados = simular(valor_inicial, meses) 
+        
+        # A API retorna a lista dos top 3 resultados e o valor inicial
+        return jsonify({"resultados": resultados, "valor_inicial": valor_inicial})
 
-print(df_resultado.to_markdown(index=False, numalign="left", stralign="left"))
-print(f"\n🏆 MELHOR APLICAÇÃO: {melhor['Aplicação']}")
-print(f"💰 VALOR LÍQUIDO FINAL: R$ {melhor['Valor Líquido']:,.2f}")
+    except (KeyError, ValueError, TypeError) as e:
+        return jsonify({"erro": f"Dados de entrada inválidos. Erro: {e}"}), 400
+
+if __name__ == '__main__':
+    # Execute com: py Logica.py
+    app.run(debug=True, port=5000)

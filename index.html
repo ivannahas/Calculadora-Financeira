@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- cabeçalho -->
     <header>
         <h1>Calculadora Financeira</h1>
 
-    <!-- navegação -->
     <nav class="navegacao">
         <ul>
-            <li><a href="#sobre">Renda Fixa</a></li>
-            <li><a href="#conteudoInvestimentos">Simulador</a></li>
+            <li><a href="#conteudoInvestimentos">Renda Fixa</a></li>
+            <li><a href="#calculadora">Simulador</a></li>
         </ul>
     </nav>
     </header>
@@ -49,13 +47,10 @@
                 <p>Investimentos com menor volatilidade que contribuem para o crescimento e preservação do seu capital, mesmo em cenários econômicos desafiadores.</p>
             </div>
         </div>
-        <!-- conteúdo investimento -->
         <div class="conteudoInvestimentos" id="conteudoInvestimentos">
-            <h2>Tipos de ativos</h2>
+            <h2>Exemplos de ativos</h2>
             <div class="investimentos" id="investimentos">
-                <!-- Os investimentos serão renderizados aqui via JavaScript -->
-            </div>
-            <!-- conteúdo calculadora -->
+                </div>
             <div class="calculadora" id="calculadora">
                     <h2>Compare investimentos ao longo do tempo</h2>
                     <p>Preencha os valores para simular a rentabilidade de diferentes tipos de produtos.</p>
@@ -64,13 +59,18 @@
                     <label for="tempo">Tempo (meses):</label>
                     <input type="number" id="tempo" placeholder="Ex: 12" min="1">
                     <button onclick="calcularInvestimento()">Simular investimento</button>
-                    <div class="resultado" id="resultado">
-                        <!-- Os resultado serão exibidos aqui após calculados via JavaScript -->
+
+                    <div class="resultadosContainer">
+                        <div class="melhorResultado" id="melhorResultado">
+                            </div>
+                        <div class="outrosResultados" id="outrosResultados">
+                            </div>
                     </div>
+                    <div class="resultado" id="resultado">
+                        </div>
             </div>
         </div>
     </div>
-    <!-- rodapé -->
     <footer>
         <p>© 2025 Calculadora Financeira. Todos os direitos reservados.</p>
         <p>Contato: <a href="mailto:contato@calculadorafinanceira.com">contato@calculadorafinanceira.com</a></p>

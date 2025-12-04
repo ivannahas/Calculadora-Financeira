@@ -6,7 +6,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Habilita a rolagem suave para a navegação interna e scroll automático */
 }
 
 body {
@@ -43,6 +43,7 @@ header h1 {
 
 /* ----- Configuraçções Navegação ----- */
 .navegacao {
+    width: 100%; /* Garante que ocupe 100% para centralizar o conteúdo */
     padding: 2em 0;
     margin-top: 10em;
 }
@@ -52,6 +53,8 @@ header h1 {
     display: flex;
     justify-content: center;
     gap: 1em;
+    max-width: 90em; /* Centraliza a lista de links */
+    margin: 0 auto; 
 }
 
 .navegacao ul li a {
@@ -224,4 +227,91 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}  
+}
+
+/* ================================================= */
+/* ============= ESTILOS PARA O RANKING (1º, 2º, 3º) ======== */
+/* ================================================= */
+
+/* Container Principal para o resultado (ajuste a centralização) */
+.resultadosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente todos os resultados */
+    margin-top: 20px;
+}
+
+/* Estilo para a mensagem de erro */
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 1em 0;
+}
+
+/* Container para o 1º Lugar */
+#melhorResultado {
+    width: 100%; /* Ocupa a largura total para centralizar o cartão dentro */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espaçamento entre o 1º e os demais */
+}
+
+/* Estilo específico para destacar o 1º investimento (Ouro/Azul) */
+.primeiro-lugar {
+    /* Reutiliza o estilo de cartão informativo */
+    border: 3px solid #3b38f2; /* Borda mais grossa para destaque */
+    background-color: #e6e6ff; /* Fundo levemente azulado */
+    max-width: 400px; /* Limita a largura para melhor visualização */
+}
+
+/* Destaque para o nome da aplicação no 1º lugar */
+.primeiro-lugar .investimentoSelecionado {
+    font-size: 1.8em;
+    color: #00008b; /* Azul mais escuro para destaque */
+    margin: 0.5em 0;
+}
+
+/* Container para o 2º e 3º Lugares (Flexbox menor) */
+#outrosResultados {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os cartões */
+    width: 100%;
+    max-width: 700px; /* Limita a largura máxima do contêiner */
+}
+
+/* Estilo para os cartões de 2º e 3º lugar (Menores) */
+.segundo-lugar, .terceiro-lugar {
+    flex: 1 1 45%; /* Cada um ocupa metade do espaço disponível no #outrosResultados */
+    max-width: 300px;
+    padding: 15px; /* Ligeiramente menor que o primeiro */
+    font-size: 0.9em; /* Texto ligeiramente menor */
+}
+
+.segundo-lugar {
+    border: 2px solid silver; /* Cor Prata */
+    background-color: #f0f0f0;
+}
+
+.terceiro-lugar {
+    border: 2px solid #cd7f32; /* Cor Bronze */
+    background-color: #f7f3f0;
+}
+
+.segundo-lugar h4, .terceiro-lugar h4 {
+    color: #333;
+    margin: 0.5em 0;
+}
+
+/* Responsividade para o 2º e 3º lugares */
+@media (max-width: 600px) {
+    #outrosResultados {
+        flex-direction: column; /* Empilha o 2º e 3º lugar em telas pequenas */
+        align-items: center;
+    }
+    .segundo-lugar, .terceiro-lugar {
+        width: 90%;
+        max-width: none;
+    }
+}
